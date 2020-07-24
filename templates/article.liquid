@@ -1,80 +1,139 @@
 <div id="generated-article-liquid">
 
-<!-- Article -->
-<div class="article">
-  <h2 class="article-title">{{ article.title }}</h2>
-  <p class="article-details">posted <span class="article-time">{{ article.created_at | date: "%Y %h" }}</span> by <span class="article-author">{{ article.author }}</span></p>
+  <!-- Article -->
+  <article>
+    {% if article.image %}
+    <img src="{{ article | img_url: '1900x' }}" alt="" class="img-fluid max-width">
+    {% endif %}
+    <div class="article container">
+      <h2 class="article-title p-5 text-center">{{ article.title }}</h2>
+      <blockquote class="blockquote ">
+        <span class="article-date">
+          {{ article.published_at | date: "%b %d, %y" }}</span>
+        <span class="site-name">
+          {{ article.author }}</span>
 
-  <div class="article-body textile">
-    {{ article.content }}
-  </div>    
+      </blockquote>
 
-</div>
-<!-- END Article -->
-
-<!-- Comments -->
-{% if blog.comments_enabled? %}
-<div id="comments">
-  <h3>Comments</h3>
-  
-  <!-- List all comments -->
-  <ul id="comment-list">
-  {% for comment in article.comments %}
-    <li>
-      <div class="comment">
-        {{ comment.content }}
+      <div class="article-body textile">
+        {{ article.content }}
       </div>
-      
-  	  <div class="comment-details">
-  		  Posted by <span class="comment-author">{{ comment.author }}</span> on <span class="comment-date">{{ comment.created_at | date: "%B %d, %Y" }}</span>
-      </div>
-  	</li>
-  {% endfor %}
-  </ul>
-  
-  <!-- Comment Form -->
-  <div id="comment-form">
-  {% form article %}
-    <h3>Leave a comment</h3>
-    
-    <!-- Check if a comment has been submitted in the last request, and if yes display an appropriate message -->
-    {% if form.posted_successfully? %}
-      {% if blog.moderated? %}
-        <div class="notice">
-          Successfully posted your comment.<br />
-          It will have to be approved by the blog owner first before showing up.
+
+    </div>
+  </article>
+  <!-- END Article -->
+
+
+
+  <!-- Comments -->
+  {% if blog.comments_enabled? %}
+
+  <div class="container" id="comments">
+    <div class="be-comment-block">
+      <h1 class="comments-title">Comments</h1>
+      {%for comment in article.comments %}
+
+      <div class="be-comment">
+        <div class="be-img-comment">
+          <i class="far fa-user"></i>
+          </a>
         </div>
-      {% else %}
-        <div class="notice">Successfully posted your comment.</div>
+        <div class="be-comment-content">
+          <span class="be-comment-name">
+            {{ comment.author }}
+          </span>
+          <span class="be-comment-time">
+            <i class="fa fa-clock-o"></i>
+            {{ comment.created_at | date: "%b %d, %Y" }}
+          </span>
+
+          <div class="be-comment-text">
+            {{ comment.content }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
       {% endif %}
-    {% endif %}
-    
-    {% if form.errors %}
-      <div class="notice error">Not all the fields have been filled out correctly!</div>
-    {% endif %}
-    
-    <dl>
-      <dt class="{% if form.errors contains 'author' %}error{% endif %}"><label for="comment_author">Your name</label></dt>
-      <dd><input type="text" id="comment_author" name="comment[author]" size="40" value="{{form.author}}" class="{% if form.errors contains 'author' %}input-error{% endif %}" /></dd>
+      <!-- List all comments
 
-      <dt class="{% if form.errors contains 'email' %}error{% endif %}"><label for="comment_email">Your email</label></dt>
-      <dd><input type="text" id="comment_email" name="comment[email]" size="40" value="{{form.email}}" class="{% if form.errors contains 'email' %}input-error{% endif %}" /></dd>
 
-      <dt class="{% if form.errors contains 'body' %}error{% endif %}"><label for="comment_body">Your comment</label></dt>
-      <dd><textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="{% if form.errors contains 'body' %}input-error{% endif %}">{{form.body}}</textarea></dd>
-    </dl>
-    
-    {% if blog.moderated? %}
-      <p class="hint">comments have to be approved before showing up</p>
-    {% endif %}    
+  <!-- Comment Form -->
+      <div id="comment-form" class="form-block">
+        <div class="row">
+          {% form article %}
+          <h3 class="mt-5">Leave a comment</h3>
 
-    <input type="submit" value="Post comment" id="comment-submit" />
-  {% endform %}
-  </div>
-  <!-- END Comment Form -->
-  
-</div>
-{% endif %}
-<!-- END Comments -->
+          <!-- Check if a comment has been submitted in the last request, and if yes display an appropriate message -->
+          {% if form.posted_successfully? %}
+          {% if blog.moderated? %}
+          <div class="notice">
+            Successfully posted your comment.<br />
+            It will have to be approved by the blog owner first before showing up.
+          </div>
+          {% else %}
+          <div class="notice">Successfully posted your comment.</div>
+          {% endif %}
+          {% endif %}
 
-</div>
+          {% if form.errors %}
+          <div class="notice error">Not all the fields have been filled out correctly!</div>
+          {% endif %}
+
+          <dl>
+
+            <div class="col-xs-12 col-sm-6">
+              <dt class="{% if form.errors contains 'author' %}error{% endif %}"><label for="comment_author">Your
+                  name</label>
+              </dt>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-group fl_icon">
+                <div class="icon"><i class="fa fa-user"></i></div>
+                <dd><input type="text" placeholder="Your name" id="comment_author" name="comment[author]" size="40"
+                    value="{{form.author}}"
+                    class="{% if form.errors contains 'author' %}input-error{% endif %}form-input" />
+                </dd>
+              </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-6">
+              <dt class="{% if form.errors contains 'email' %}error{% endif %}"><label for="comment_email">Your
+                  email</label>
+              </dt>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 fl_icon">
+              <div class="form-group fl_icon">
+                <div class="icon"><i class="far fa-envelope"></i></div>
+                <dd><input type="text" placeholder="Your email" id="comment_email" name="comment[email]" size="40"
+                    value="{{form.email}}"
+                    class="{% if form.errors contains 'email' %}input-error{% endif %} form-input" />
+                </dd>
+              </div>
+            </div>
+
+            <div class="col-xs-12">
+              <dt class="{% if form.errors contains 'body' %}error{% endif %}"><label for="comment_body">Your
+                  comment</label>
+              </dt>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group">
+                <dd><textarea id="comment_body" name="comment[body]" placeholder="Your text" cols="40" rows="5"
+                    class="{% if form.errors contains 'body' %}input-error{% endif %}">{{form.body}}</textarea></dd>
+              </div>
+            </div>
+          </dl>
+
+          {% if blog.moderated? %}
+          <p class="hint">comments have to be approved before showing up</p>
+          {% endif %}
+
+          <input class="btn btn-primary pull-right" type="submit" value="Post comment" id="comment-submit" />
+          {% endform %}
+        </div>
+      </div>
+      <!-- END Comment Form -->
+    </div>

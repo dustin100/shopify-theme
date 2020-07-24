@@ -1,0 +1,205 @@
+<section class="product-category">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="grid-container col-lg-12">
+
+        <a class="gridSquare largeSquare squareOne" href="{{section.settings.url-one}}"
+          style="background-image: url('{{section.settings.bg-image-one | img_url: 'large'}}');">
+          <div class="squareContentBlock">
+            <h2>{{section.settings.header-one}}</h2>
+            <p>{{section.settings.text-one}}</p>
+            <button class="btn btn-primary btn-large pl-4 pr-4">{{section.settings.button-text-one}}</button>
+          </div>
+        </a>
+
+        <a class="gridSquare largeSquare squareTwo" href="{{section.settings.url-two}}"
+          style="background-image: url('{{section.settings.bg-image-two | img_url: 'large'}}');">
+          <div class="squareContentBlock">
+            <h2>{{section.settings.header-two}}</h2>
+            <p>{{section.settings.text-two}}</p>
+            <button class="btn btn-primary btn-large pl-4 pr-4">{{section.settings.button-text-two}}</button>
+          </div>
+        </a>
+        <a class="gridSquare smallSquare squareThree" href="{{section.settings.url-three}}"
+          style="background-image: url('{{section.settings.bg-image-three | img_url: 'large'}}');">
+          <div class="squareContentBlock">
+            <h2>{{section.settings.header-three}}</h2>
+            <p>{{section.settings.text-three}}</p>
+            <button class="btn btn-primary btn-large pl-4 pr-4">{{section.settings.button-text-three}}</button>
+          </div>
+        </a>
+        <a class="gridSquare smallSquare squareFour" href="{{section.settings.url-four}}"
+          style="background-image: url('{{section.settings.bg-image-four | img_url: 'large'}}');">
+          <div class="squareContentBlock">
+            <h2>{{section.settings.header-four}}</h2>
+            <p>{{section.settings.text-four}}</p>
+            <button class="btn btn-primary btn-large pl-4 pr-4">{{section.settings.button-text-four}}</button>
+          </div>
+        </a>
+        <a class="gridSquare smallSquare squareFive" href="{{section.settings.url-five}}"
+          style="background-image: url('{{section.settings.bg-image-five | img_url: 'large'}}');">
+          <div class="squareContentBlock">
+            <h2>{{section.settings.header-five}}</h2>
+            <p>{{section.settings.text-five}}</p>
+            <button class="btn btn-primary btn-large pl-4 pr-4">{{section.settings.button-text-five}}</button>
+          </div>
+        </a>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "Category Promo Grid",
+"presets": [
+{
+"category": "Custom Content",
+"name": "Promo Grid"
+}
+],
+"settings": [
+{
+"type": "text",
+"id": "header-one",
+"default": "Heading One",
+"label": "Square One Header"
+},
+{
+"type": "textarea",
+"id": "text-one",
+"label": "Text One"
+},
+{
+"type": "image_picker",
+"id": "bg-image-one",
+"label": "Background Image One"
+},
+{
+"type": "url",
+"id": "url-one",
+"label": "URL One"
+},
+{
+"type": "text",
+"id": "button-text-one",
+"default": "Shop",
+"label": "Button Text One"
+},
+
+{
+"type": "text",
+"id": "header-two",
+"default": "Heading two",
+"label": "Square two Header"
+},
+{
+"type": "text",
+"id": "text-two",
+"label": "Text two"
+},
+{
+"type": "image_picker",
+"id": "bg-image-two",
+"label": "Background Image two"
+},
+{
+"type": "url",
+"id": "url-two",
+"label": "URL two"
+},
+{
+"type": "text",
+"id": "button-text-two",
+"default": "Shop",
+"label": "Button Text two"
+},
+{
+"type": "text",
+"id": "header-three",
+"default": "Heading three",
+"label": "Square three Header"
+},
+{
+"type": "text",
+"id": "text-three",
+"label": "Text three"
+},
+{
+"type": "image_picker",
+"id": "bg-image-three",
+"label": "Background Image three"
+},
+{
+"type": "url",
+"id": "url-three",
+"label": "URL three"
+},
+{
+"type": "text",
+"id": "button-text-three",
+"default": "Shop",
+"label": "Button Text three"
+},
+{
+"type": "text",
+"id": "header-four",
+"default": "Heading four",
+"label": "Square four Header"
+},
+{
+"type": "text",
+"id": "text-four",
+"label": "Text four"
+},
+{
+"type": "image_picker",
+"id": "bg-image-four",
+"label": "Background Image four"
+},
+{
+"type": "url",
+"id": "url-four",
+"label": "URL four"
+},
+{
+"type": "text",
+"id": "button-text-four",
+"default": "Shop",
+"label": "Button Text four"
+},
+{
+"type": "text",
+"id": "header-five",
+"default": "Heading five",
+"label": "Square five Header"
+},
+{
+"type": "text",
+"id": "text-five",
+"label": "Text five"
+},
+{
+"type": "image_picker",
+"id": "bg-image-five",
+"label": "Background Image five"
+},
+{
+"type": "url",
+"id": "url-five",
+"label": "URL five"
+},
+{
+"type": "text",
+"id": "button-text-five",
+"default": "Shop",
+"label": "Button Text five"
+}
+
+]
+}
+{% endschema %}

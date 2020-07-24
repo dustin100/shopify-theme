@@ -1,0 +1,74 @@
+{% include 'page-header', title: {{page.title}} %}
+<section class="contact section">
+    <div class="container">
+        <div class="row">
+            <div class="contact-form col-md-6 ">
+                {% form 'contact' %}
+                    {%if form.posted_successfully? %}
+                        <p class="note form-success">
+                            Thank you for contacting us
+                        </p>
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input class="form-control" id="name" name="contact[name]" placeholder="Your Name" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="email" name="contact[email]" placeholder="Your Email" type="email">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" id="subject" name="contact[subject]" placeholder="Subject" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" name="contact[message]" placeholder="Message" rows="6"></textarea>
+                    </div>
+
+                    <div>
+                        <input class="btn btn-transparent" id="contact-submit" type="submit" value="Submit">
+                    </div>
+                {% endform %}
+
+            </div>
+
+            <div class="contact-details col-md-6 ">
+                <ul class="contact-short-info list-unstyled">
+                    {% if settings.address != blank%}
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <span>{{settings.address}}</span>
+                        </li>
+                    {% endif %}
+                    {% if settings.phone != blank%}
+                        <li>
+                            <i class="fa fa-mobile"></i>
+                            <span>{{settings.phone}}</span>
+                        </li>
+                    {% endif %}
+                    {%if settings.fax != blank %}
+                        <li>
+                            <i class="fa fa-fax"></i>
+                            <span>{{settings.fax}}</span>
+                        </li>
+                    {% endif %}
+                    {%if settings.email != blank %}
+                        <li>
+                            <i class="fa fa-envelope-open"></i>
+                            <span>{{settings.email}}</span>
+                        </li>
+                    {% endif %}
+                </ul>
+                <div class="social-icon">
+                    <ul>
+                        <li><a class="fb-icon" href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

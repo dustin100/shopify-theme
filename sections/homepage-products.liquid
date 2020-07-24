@@ -1,0 +1,80 @@
+<section>
+    <div class="container">
+        <h3 class="h3 mb-2">{{section.settings.title}} </h3>
+        {% assign collection = collections[section.settings.collection] %}
+        <div class="row mb-5">
+            {% paginate collection.products by section.settings.product_limit %}
+            {% for product in collection.products %}
+
+            <div class="col-md-4 col-sm-8">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="{{product.url}}">
+                            <img class="pic-1" src="{{  product.images[0] | img_url: 'large' }}"
+                                alt="{{ product.featured_image.alt | escape }}">
+                            {% if product.images[1] != blank %}
+
+                            <img class="pic-2" src="{{  product.images[1] | img_url: 'large' }}"
+                                alt="{{ product.featured_image.alt | escape }}">
+                            {% else %}
+                            <img class="pic-2" src="{{  product.images[0] | img_url: 'large' }}"
+                                alt="{{ product.featured_image.alt | escape }}">
+                            {% endif %}
+
+                        </a>
+                        <a href="{{product.url}}" class="fa fa-search product-full-view"></a>
+                    </div>
+                    <div class="product-content">
+                        <ul class="rating">
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                        </ul>
+                        <h3 class="title"><a href="{{product.url}}">{{product.title}}</a></h3>
+                        <div class="price">{{product.price | money}}</div>
+                        <a class="add-to-cart" href="">VIEW PRODUCT</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endpaginate %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "Home Page Products",
+"presets": [
+{
+"category": "Custom Content",
+"name": "Product List"
+}
+],
+"settings": [{
+"type": "text",
+"id": "title",
+"label": "heading",
+"default": "Trending Products"
+
+},
+{
+"type": "collection",
+"id": "collection",
+"label": "Collection"
+},
+{
+
+"type": "range",
+"id": "product_limit",
+"label": "Product Limit",
+"min": 3,
+"max": 9,
+"default": 6
+
+}
+]
+}
+{% endschema %}

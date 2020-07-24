@@ -1,0 +1,115 @@
+{
+  "current": {
+    "bg_color": "#ffffff",
+    "text_color": "#cccccc",
+    "use_logo": false,
+    "about_img": "shopify:\/\/shop_images\/about.png",
+    "address": "123 main street",
+    "phone": "123-456-7890",
+    "fax": "098-765-4321",
+    "email": "cool@cool.com",
+    "checkout_header_image": "",
+    "checkout_use_storefront_logo": false,
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "main_linklist": "main-menu"
+        }
+      },
+      "home-page-carousel": {
+        "type": "home-page-carousel",
+        "settings": {
+          "slide-1": "shopify:\/\/shop_images\/confident-young-woman.jpg",
+          "slide-2": "shopify:\/\/shop_images\/casual-mens-fashion.jpg"
+        }
+      },
+      "category-banners": {
+        "type": "category-banners",
+        "settings": {
+          "category_top_left_header": "Dresses",
+          "category_top_left_text": "Sale!",
+          "category_top_left": "shopify:\/\/shop_images\/model-smiles-and-walks-in-green-dress.jpg",
+          "category_top_left_url": "shopify:\/\/collections\/dresses",
+          "category_bottom_left_header": "Jeans",
+          "category_bottom_left_text": "Sale!",
+          "category_bottom_left": "shopify:\/\/shop_images\/man-on-iphone-outside.jpg",
+          "category_bottom_left_url": "shopify:\/\/collections\/mens-jeans",
+          "category_right_header": "Jewlery",
+          "category_right_text": "Sale!",
+          "category_right": "shopify:\/\/shop_images\/stacked-bracelets.jpg",
+          "category_right_url": ""
+        }
+      },
+      "homepage-products": {
+        "type": "homepage-products",
+        "settings": {
+          "title": "Trending Products",
+          "collection": "womens-shirts",
+          "product_limit": 6
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "1594585153565": {
+            "type": "text",
+            "settings": {
+              "footer_text": "Contact",
+              "footer_url": "shopify:\/\/pages\/contact"
+            }
+          },
+          "1594585164696": {
+            "type": "text",
+            "settings": {
+              "footer_text": "About",
+              "footer_url": "shopify:\/\/pages\/about-us"
+            }
+          },
+          "1594585191235": {
+            "type": "text",
+            "settings": {
+              "footer_text": "Terms of use",
+              "footer_url": "shopify:\/\/pages\/about-us"
+            }
+          }
+        },
+        "block_order": [
+          "1594585153565",
+          "1594585164696",
+          "1594585191235"
+        ],
+        "settings": {
+          "facebook": "https:\/\/www.google.com",
+          "instagram": "https:\/\/www.google.com",
+          "twitter": "https:\/\/www.google.com",
+          "pinterest": "https:\/\/www.google.com"
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "category": "collection-category"
+        }
+      }
+    },
+    "content_for_index": []
+  }
+}

@@ -1,0 +1,103 @@
+<footer class="footer section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="social-media">
+                    {% if section.settings.facebook != blank %}
+                    <li>
+                        <a href="{{section.settings.facebook}}">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if section.settings.instagram != blank %}
+                    <li>
+                        <a href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    {%endif%}
+                    {% if section.settings.twitter != blank %}
+
+                    <li>
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    {%endif%}
+                    {% if section.settings.pinterest != blank %}
+
+                    <li>
+                        <a href="">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </li>
+                    {%endif%}
+
+                </ul>
+                <ul class="footer-menu">
+                    {% for block in section.blocks %}
+
+
+                    <li>
+                        <a href="{{block.settings.footer_link}}">{{block.settings.footer_text}}</a>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+                <p class="copyright-text">Copyright &#9400; Dustin's cool site Test</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% schema %}
+{
+"name": "Social Icons",
+"settings": [
+{
+"type": "text",
+"id": "facebook",
+"label":"Facebook Link"
+
+},
+{
+"type": "text",
+"id": "instagram",
+"label":"Instagram Link"
+
+},
+{
+"type": "text",
+"id": "twitter",
+"label":"Twitter Link"
+
+},
+{
+"type": "text",
+"id": "pinterest",
+"label":"Pinterest Link"
+
+}
+],
+"blocks":[
+{
+"type": "text",
+"name": "Footer Link",
+"settings": [
+{
+"type": "text",
+"id": "footer_text",
+"label": "Footer Text"
+},
+{
+"type": "url",
+"id": "footer_url",
+"label": "Link"
+}
+]
+}
+]
+}
+{% endschema %}

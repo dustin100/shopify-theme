@@ -1,0 +1,162 @@
+<!-- <section class="products section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="widget">
+                    <h4 class="widget-title">Sort By</h4>
+                </div>
+
+                <div id="accordion">
+                    {% for link in linklists[section.settings.category].links %}
+                        {% if link.links != blank %}
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h5>
+                                        <a href="" class="{% if forloop.index != 1 %} collapsed {% endif %}" data-toggle="collapse" data-target="#collapse-{{link.title}}" aria-expanded="true" aria-controls="collapse-{{link.title}}">
+                                            {{link.title}}
+                                        </a>
+                                    </h5>
+                                </div>
+
+                                <div aria-labelledby="headingOne" class="collapse {% if forloop.first %} show {% endif %}" data-parent="#accordion" id="collapse-{{link.title}}">
+                                    <div class="card-body">
+                                        <ul class="list-unstyled">
+                                            {% for childlink in link.links %}
+                                                <li>
+                                                    <a href="{{childlink.url}}">{{childlink.title}}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% else %}
+
+                            <div class="card">
+                                <div class="card-header" id="heading-{{link.title}}">
+                                    <h5>
+                                        <a href="{{link.url}}" class="no-icon">
+                                            {{link.title}}
+                                        </a>
+                                    </h5>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="row">
+                    {% for product in collection.products %}
+                        <div class="col-md-4">
+                            <div class="product-item">
+                                <div class="product-thumb">
+                                    {% if product.compare_at_price and product.compare_at_price != product.price %}
+                                        <span class="bage">Sale</span>
+                                    {% endif %}
+
+                                    <img class="img-responsive" src="{{product.featured_image.src | img_url: '1920x'}}">
+                                    <div class="preview-meta">
+                                        <ul>
+                                            <li>
+                                                <a href="{{product.url}}">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <form action="/cart/add" id="form-{{product.handle}}" method="post">
+                                                    <input type="hidden" name="id" value="{{product.variants.first.id}}">
+                                                    <a onclick="document.getElementById('form-{{product.handle}}').submit()">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </a>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h4>
+                                        <a href="{{product.url}}">{{product.title}}</a>
+                                    </h4>
+                                    <p class="price">{{product.price | money}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section>
+    <div class="container">
+        <h3 class="h3 mb-2">{{section.settings.title}} </h3>
+
+        <div class="row mb-5">
+            {% paginate collection.products by section.settings.product_limit %}
+            {% for product in collection.products %}
+
+            <div class="col-md-4 col-sm-8">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="{{product.url}}">
+                            <img class="pic-1" src="{{  product.images[0] | img_url: 'large' }}"
+                                alt="{{ product.featured_image.alt | escape }}">
+                            {% if product.images[1] != blank %}
+
+                            <img class="pic-2" src="{{  product.images[1] | img_url: 'large' }}"
+                                alt="{{ product.featured_image.alt | escape }}">
+                            {% else %}
+                            <img class="pic-2" src="{{  product.images[0] | img_url: 'large' }}"
+                                alt="{{ product.featured_image.alt | escape }}">
+                            {% endif %}
+
+                        </a>
+                        <a href="{{product.url}}" class="fa fa-search product-full-view"></a>
+                    </div>
+                    <div class="product-content">
+                        <ul class="rating">
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                            <li class="fa fa-star"></li>
+                        </ul>
+                        <h3 class="title"><a href="{{product.url}}">{{product.title}}</a></h3>
+                        <div class="price">{{product.price | money}}</div>
+                        <a class="add-to-cart" href="">VIEW PRODUCT</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endpaginate %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+"name": "Collection Page",
+"settings": [
+{
+"type": "link_list",
+"id": "category",
+"label": "Collection Dropdown"
+},
+
+{
+
+"type": "range",
+"id": "product_limit",
+"label": "Product Limit",
+"min": 9,
+"max": 18,
+"default": 9
+
+}
+]
+}
+{% endschema %}

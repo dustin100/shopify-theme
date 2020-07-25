@@ -6,8 +6,8 @@
     <img src="{{ article | img_url: '1900x' }}" alt="" class="img-fluid max-width">
     {% endif %}
     <div class="article container">
-      <h2 class="article-title p-5 text-center">{{ article.title }}</h2>
-      <blockquote class="blockquote ">
+      <h1 class="article-title p-5 text-center">{{ article.title }}</h1>
+       <blockquote class="blockquote ">
         <span class="article-date">
           {{ article.published_at | date: "%b %d, %y" }}</span>
         <span class="site-name">

@@ -11,7 +11,7 @@
                     </li>
                     {% endif %}
 
-                    {% if section.settings.instagram != blank %}
+                     {% if section.settings.instagram != blank %}
                     <li>
                         <a href="">
                             <i class="fab fa-instagram"></i>
@@ -51,53 +51,48 @@
         </div>
     </div>
 </footer>
+ 
 
 {% schema %}
-{
-"name": "Social Icons",
-"settings": [
-{
-"type": "text",
-"id": "facebook",
-"label":"Facebook Link"
 
-},
 {
-"type": "text",
-"id": "instagram",
-"label":"Instagram Link"
+    "name": "Social Icons",
+    "settings": [
+        {
+            "type": "text",
+            "id": "facebook",
+            "label": "Facebook Link"
+        }, {
+            "type": "text",
+            "id": "instagram",
+            "label": "Instagram Link"
+        }, {
+            "type": "text",
+            "id": "twitter",
+            "label": "Twitter Link"
+        }, {
+            "type": "text",
+            "id": "pinterest",
+            "label": "Pinterest Link"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "text",
+            "name": "Footer Link",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "footer_text",
+                    "label": "Footer Text"
+                }, {
+                    "type": "url",
+                    "id": "footer_url",
+                    "label": "Link"
+                }
+            ]
+        }
+    ]
+}
 
-},
-{
-"type": "text",
-"id": "twitter",
-"label":"Twitter Link"
-
-},
-{
-"type": "text",
-"id": "pinterest",
-"label":"Pinterest Link"
-
-}
-],
-"blocks":[
-{
-"type": "text",
-"name": "Footer Link",
-"settings": [
-{
-"type": "text",
-"id": "footer_text",
-"label": "Footer Text"
-},
-{
-"type": "url",
-"id": "footer_url",
-"label": "Link"
-}
-]
-}
-]
-}
 {% endschema %}
